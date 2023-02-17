@@ -35,9 +35,9 @@ AWS Resource를 사용하여 Architecture를 구성하였다.
 
 ### 2-1. 보안성 고려 
 
-1.ACM에서 인증서 발급을 통한 HTTPS 통신
+1. ACM에서 인증서 발급을 통한 HTTPS 통신
 
-2.Node Instance를 Private-Subnet에 배치와 Public에 LB와 NAT-Gateway 구성 : Server로의 Inbound차단
+2. Node Instance를 Private-Subnet에 배치와 Public에 LB와 NAT-Gateway 구성 : Server로의 Inbound차단
  
 ### 2-2 탄력 및 안정성 고려 
 
