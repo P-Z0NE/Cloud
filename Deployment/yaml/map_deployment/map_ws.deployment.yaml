@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mapnginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mapnginx
+  template:
+    metadata:
+      labels:
+        app: mapnginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: map-nginx-volume
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+      volumes:
+      - name: map-nginx-volume
+        configMap:
+          name: map-nginx-conf

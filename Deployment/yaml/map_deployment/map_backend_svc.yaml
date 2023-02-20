@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: map-was-svc
+spec:
+  selector:
+    app: mapwas
+  ports:
+    - port: 8000
+      targetPort: 8000

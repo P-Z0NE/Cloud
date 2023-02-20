@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test2-model-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test2model
+  template:
+    metadata:
+      labels:
+        app: test2model
+    spec:
+      containers:
+      - name: test2model
+        image: public.ecr.aws/h1f8k5p0/pzone:model_v7
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            cpu: "250m"
+          limits:
+            cpu: "500m"

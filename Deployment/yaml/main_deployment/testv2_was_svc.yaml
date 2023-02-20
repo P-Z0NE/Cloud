@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test2-was-svc
+spec:
+  sessionAffinity: ClientIP
+  selector:
+    app: test2was
+  ports:
+    - port: 8000
+      targetPort: 8000

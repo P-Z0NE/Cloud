@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test2-ws-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test2ws
+  template:
+    metadata:
+      labels:
+        app: test2ws
+    spec:
+      containers:
+      - name: test2ws
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: test2-volume
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+        - name: persistent-storage
+          mountPath: /data/static
+      volumes:
+      - name: test2-volume
+        configMap:
+          name: testv2nginx
+      - name: persistent-storage
+        persistentVolumeClaim:
+          claimName: efs-pzone-claim

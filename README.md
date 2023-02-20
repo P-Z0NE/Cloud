@@ -126,3 +126,4 @@ To be:
 3. Git action을 통한 CI/CD : 통합 배포 파이프라인 구축, 간편화
 4. Session Affinity => Redis같은 In Memory DB 사용: 로그인 세션 관리
 5. log EFS 저장 => Cronjob => S3 log 저장 : 백업 + 자동화
+6. kube-ops => Cloudwatch 사용 : 서버 유지 및 관리 

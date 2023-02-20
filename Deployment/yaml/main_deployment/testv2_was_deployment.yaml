@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test2-was-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test2was
+  template:
+    metadata:
+      labels:
+        app: test2was
+    spec:
+      containers:
+      - name: test2was
+        image: public.ecr.aws/h1f8k5p0/pzone:django_v7
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+        - name: persistent-storage
+          mountPath: /home/PZONE-Django-Test/P_ZONE_NOTICE/staticfiles/
+      volumes:
+      - name: persistent-storage
+        persistentVolumeClaim:
+          claimName: efs-pzone-claim

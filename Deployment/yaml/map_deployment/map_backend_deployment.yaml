@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: map-was
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mapwas
+  template:
+    metadata:
+      labels:
+        app: mapwas
+    spec:
+      containers:
+      - name: mapwas
+        image: public.ecr.aws/h1f8k5p0/pzone:mapwasv2
+        envFrom:
+        - configMapRef:
+            name: pzone-cm
+        - secretRef:
+            name: pzone-secret
+        ports:
+        - containerPort: 8000
