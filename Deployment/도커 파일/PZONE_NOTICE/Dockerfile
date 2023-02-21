@@ -11,8 +11,6 @@ WORKDIR /home/PZONE-Django-Test
 
 RUN python -m pip install --upgrade pip
 
-RUN echo "SECRET_KEY=django-insecure-au2af!348n5eojlj+31a%5cq2r3iyk9a92!e8y-y-4518_hb0l" > .env
-
 RUN pip install -r requirements.txt
 
 RUN apt-get update
